@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/app/Http/Controllers/Auth/LoginController.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/app/Http/Controllers/HomeController.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/resources/views/admin/mediascript/multiple_next.blade.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/resources/views/layouts/admin.blade.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/resources/views/layouts/app.blade.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/resources/views/admin/products/create.blade.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/app/Http/Controllers/Admin/MediaController.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/resources/views/partials/menu.blade.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/public/assets/js/image-uploader.js</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/resources/views/admin/media/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/app/Models/MapAttribute.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/.env</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/resources/views/admin/products/edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/resources/views/admin/mediascript/multiple.blade.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/app/Http/Controllers/Admin/CityController.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/app/Http/Controllers/Admin/ProductController.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/app/Http/Controllers/Admin/SettingController.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/routes/web.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/public/assets/editor/samples/old/inlineall.html</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/resources/views/admin/productVariations/create.blade.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/app/Http/Controllers/Admin/MapAttributeController.php</file>
+            <file>file:/C:/xampp/htdocs/projects/adaajaipur/app/Http/Controllers/Admin/HomeController.php</file>
+        </group>
+    </open-files>
+</project-private>
