@@ -1,0 +1,330 @@
+/* New Stylesheet added for Homepage by Amit on 21-11-2022 */
+
+.product-category-image .product-category-title {
+    background-color: rgb(255 255 255 / 93%);
+    display: inline-block;
+    padding: 7px 15px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.list-blocks-section {
+    position: relative;
+    margin-top: 50px;
+}
+
+.row-half {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.row-half > [class*="col"] {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.list-blocks-item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.list-blocks-wrap {
+    background-color: #f5f5f5;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.list-block-icon {
+    margin: 0px auto 15px;
+    font-size: 28px;
+}
+
+.list-block-title {
+    margin: 0 0 15px;
+}
+
+.instagram-section {
+    /* background-image: url(../images/bg.png); */
+    padding: 80px 0 80px;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.instagram-section::before {
+    content: "";
+    position: absolute;
+    background-color: rgb(245 245 245 / 42%);
+    /* width: 100%; */
+    /* height: 100%; */
+    top: 50px;
+    left: 50px;
+    opacity: 0.8;
+    right: 50px;
+    bottom: 50px;
+    /* box-shadow: 0 0 2px rgb(0 0 0 / 25%); */
+    max-width: 1630px;
+    margin: 0 auto;
+    border-radius: 0px;
+}
+
+/* Footer Section */
+
+.footer-newsletter-wrapper{
+    border-bottom: 1px solid #d3d3d37a;
+    padding-bottom: 18px;
+}
+
+.newsletter-outer {
+    /* border-bottom: 1px solid rgba(255,255,255,0.1); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding-bottom: 30px; */
+}
+
+.footer-newsletter .newsletter-title {
+    color: #fff;
+}
+.newsletter-title {
+    margin: 0 20px 0 0;
+}
+
+.footer-newsletter .footer-social-icon{
+    margin: 0;
+}
+
+.footer-newsletter form {
+    background-color: #dc860c;
+    max-width: 470px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.newsletter-form {
+    width: 100%;
+    max-width: 470px;
+}
+
+.newsletter-fields {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.subscribe-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.newsletter-fields input[type="email"] {
+    border: 1px solid rgba(107, 108, 119, 0.15);
+    height: 50px;
+    padding: 12px 100px 12px 55px;
+}
+
+.newsletter-fields input[type="email"]:focus-visible {
+    outline-color: #dc860c;
+}
+
+
+.newsletter-fields input[type="submit"], .newsletter-fields .btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.subscribe-icon svg {
+    vertical-align: middle;
+    fill: currentColor;
+    stroke: none;
+    width: 26px;
+    height: 26px;
+}
+
+.newsletter-fields .btn{
+    background-color: #dc860c;
+    border-color: #dc860c;
+}
+
+/* Single Product Size Css */
+
+.attribute-group .attribute-size{
+    padding: 7px 0px;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    width: 38px;
+    display: inline-block;
+    aspect-ratio: 1;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.attribute-group .attribute-size:hover{
+    background-color: #dc860c;
+    transition: all 0.2s ease;
+    color: white;
+}
+
+.attribute-color {
+    width: 38px;
+    height: 38px;
+    margin: 0px auto;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #dc860c 50%, #e4a526 50%);
+    position: relative;
+    display: inline-block;
+    border: 1px solid rgb(211, 212, 213);
+}
+.attribute-color.pink{
+    background: linear-gradient(135deg, #fd5f87 50%, #e52357 50%);
+}
+.attribute-color.blue{
+    background: linear-gradient(135deg, #ce97a8 50%, #a3bbd5 50%);
+}
+
+.attribute-color::after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    transition: all 125ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+    border: 2px solid transparent;
+}
+
+.attribute-color:hover{
+    border-color: rgb(116, 121, 124);
+    transition-duration: 250ms;
+}
+
+.product-category-section .section-header::before , .product-section .section-header::before , .instagram-section .section-header::before{
+    content: "";
+    position: absolute;
+    background-image: url(../images/add-leaf.png);
+    width: 70px;
+    background-size: contain;
+    height: 100%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    /* left: 0; */
+    left: 50%;
+    top: 36%;
+    transform: translate(-50%, -50%);   
+    z-index: 1;
+}
+.section-header{
+    min-height: 100px;
+    overflow: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-category-section::before{
+    top: 30px;
+}
+
+.product-section{
+    position: relative;
+}
+
+.product-section::before {
+    content: "";
+    position: absolute;
+    background-color: rgb(245 245 245 / 42%);
+    /* width: 100%; */
+    /* height: 100%; */
+    top: 50px;
+    left: 50px;
+    opacity: 0.8;
+    right: 50px;
+    bottom: 50px;
+    /* box-shadow: 0 0 2px rgb(0 0 0 / 25%); */
+    max-width: 1630px;
+    margin: 0 auto;
+    border-radius: 0px;
+}
+
+
+/* Checkout page CSS */
+
+.coupon{
+    background-color: #e1f2f0;
+    margin-bottom: 30px;
+}
+
+.order-review-wrapper{
+    background-color: #e1f2f0;
+}
+
+.checkout-order-review h3{
+    padding: 15px 15px 0px;
+}
+
+/* Cart page CSS */
+
+.cart-totals{
+    background-color: #e1f2f0;
+}
+
+
+/* Media queries By amit */
+
+@media only screen and (max-width: 1400px){
+    .newsletter-form {
+        width: 100%;
+        max-width: 370px;
+    }
+}
+
+@media only screen and (max-width: 991px){
+    .footer-payment-widget{
+        order: 1;
+        text-align: end;
+    }
+    .newsletter-outer{
+        order: 3;
+        margin-top: 25px;
+    }
+    .footer-newsletter .footer-widget-title{
+        text-align: left;
+    } 
+    .footer-payment-widget .footer-widget-title{
+        text-align: right;
+    }  
+}
+
+@media only screen and (max-width: 767px){
+    .footer-payment-widget{
+        margin-top: 25px;
+        text-align: center;
+    }  
+    .footer-payment-widget .footer-widget-title{
+        text-align: center;
+    } 
+    .footer-social{
+        text-align: center;
+    }
+    .footer-newsletter .footer-widget-title{
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 591px){
+    .newsletter-outer{
+        flex-direction: column;
+    }
+    .footer-newsletter .newsletter-title{
+        margin-bottom: 10px;
+    }
+}
+
