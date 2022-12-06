@@ -707,7 +707,7 @@
                                                     </div> --}}
                                                     <div class="icheck-primary">
                                                         <input type="checkbox" name="primary[{{ $color->id }}]" id="primarydata{{$color->id}}" data-member="{{$color->id}}"
-                                                               value="1" data-toggle='tooltip' data-placement='right' data-original-title="tooltip here" class='checkbox' checked="" >
+                                                               value="1" data-toggle='tooltip' data-placement='right' data-original-title="tooltip here" class="checkbox" @if(isset($productPrimaryVariation[0]['color_id']) && $productPrimaryVariation[0]['color_id'] == $color->id) checked @endif >
                                                              <label for="primarydata{{$color->id}}"></label>
                                                              <span >Primary Variation</span>
                                                     </div>

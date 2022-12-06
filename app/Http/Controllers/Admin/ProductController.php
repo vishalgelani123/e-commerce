@@ -455,7 +455,10 @@ class ProductController extends Controller
         $productImages = ProductImage::where([
             'product_id' => $product->id,
         ])->get();
-        
+        $productPrimaryVariation = ProductVariation::where([
+            'product_id' => $product->id,
+            'primary_variation' => 1
+        ])->get();
         $productColors = array_unique($productColors);
         if (isset($mapAttributes->colors) && $mapAttributes->colors) {
             $colors = Color::whereIn('id', $mapAttributes->colors)
@@ -463,7 +466,7 @@ class ProductController extends Controller
                 ->select(['id', 'name', 'value'])
                 ->get();
         }
-        return view('admin.products.edit', compact('product','categories','sub_categories','child_categories','colors','images','productVariation','productColors','sizes', 'variations', 'productImages'));
+        return view('admin.products.edit', compact('product','categories','sub_categories','child_categories','colors','images','productVariation','productColors','sizes', 'variations', 'productImages', 'productPrimaryVariation'));
     }
 
     function sendimg(Request $request){
