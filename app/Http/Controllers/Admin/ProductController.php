@@ -488,6 +488,17 @@ class ProductController extends Controller
 
     public function update(UpdateProductRequest $request, Product $product)
     {
+//        if ($request->has('gallery')) {
+//            foreach ($request->gallery as $key => $value) {
+//                foreach($value as $newkey => $newvalue){
+//                    $type = explode('.', $newvalue)[1];
+//                    if ($type == 'mp4') {
+//                        dd('aavo');
+//                    }
+//                }
+//            }
+//        }
+//        dd('===');
        abort_if(Gate::denies('product_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
        $icollection = ProductImage::where('product_id', $product->id)->select('id')->get();
        if($icollection->count() > 0){
@@ -539,8 +550,13 @@ class ProductController extends Controller
                     $imagepath            = $newvalue;
                     $path               = 'file/';
                     $upload             = 'file/';
+                    $extenstion = explode('.', $newvalue)[1];
+                    $type = 1;
+                    if ($extenstion == 'mp4') {
+                        $type = 3;
+                    }
                     ProductImage::create([
-                        'type' => 1,
+                        'type' => $type,
                         'file_name' => $imagepath,
                         'product_id' =>$product->id,
                         'product_color_id'=>$key

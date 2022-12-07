@@ -128,14 +128,25 @@ use App\Models\Images;
                                 <div class="row">
                                     <?php $images = Images::all(); ?>
                                     @foreach($images as $image)
-                                        <div class="col-xs-4 col-md-2 margin-bottomset py-2">
-                                            <div class="img-thumbnail thumbnail-imgess">
-                                                <input type="checkbox" id="myCheckbox{{$image->id}}" data-id="{{$image->id}}" data-img="{{$image->name}}"/>
-                                                <label for="myCheckbox{{$image->id}}" id="myLabel{{$image->id}}">
-                                                    <img onerror="handleError(this);"class="box-images px-2 py-2" image_id="" src="{{asset("file")}}/{{$image->name}}" alt="..." >
-                                                </label>
+                                        @if (explode('.',$image->name)[1] == 'mp4')
+                                            <div class="col-xs-4 col-md-2 margin-bottomset py-2">
+                                                <div class="img-thumbnail thumbnail-imgess">
+                                                    <input type="checkbox" id="myCheckbox{{$image->id}}" data-id="{{$image->id}}" data-img="{{$image->name}}"/>
+                                                    <label for="myCheckbox{{$image->id}}" id="myLabel{{$image->id}}">
+                                                        <img onerror="handleError(this);"class="box-images px-2 py-2" image_id="" title="Video - {{$image->name}}" src="{{asset('assets/images/video.png')}}" alt="..." >
+                                                    </label>
+                                                </div>
                                             </div>
-                                        </div>
+                                        @else
+                                            <div class="col-xs-4 col-md-2 margin-bottomset py-2">
+                                                <div class="img-thumbnail thumbnail-imgess">
+                                                    <input type="checkbox" id="myCheckbox{{$image->id}}" data-id="{{$image->id}}" data-img="{{$image->name}}"/>
+                                                    <label for="myCheckbox{{$image->id}}" id="myLabel{{$image->id}}">
+                                                        <img onerror="handleError(this);"class="box-images px-2 py-2" image_id="" src="{{asset("file")}}/{{$image->name}}" alt="..." >
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @endif
                                     @endforeach
                                 </div>
                              </div>

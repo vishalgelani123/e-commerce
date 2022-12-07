@@ -724,11 +724,19 @@
                                                             @foreach ($productImages as $value)
                                                                 @if ($value->product_color_id == $color->id)
                                                                 <div class="col-2">
+                                                                    @if ($value->type == 3)
                                                                     <div class="border p-2"  id="add-image">
                                                                         <i class="fa fa-times" style="" id="img-cross"> </i>
-                                                                        <img onerror="handleError(this);"src="{{asset('file/'. $value->file_name)}}" class="w-100" style="height : 150px;">
+                                                                        <img onerror="handleError(this);"class="box-images px-2 py-2" image_id="" title="Video - {{$value->file_name}}" src="{{asset('assets/images/video.png')}}" alt="..." >
                                                                         <input type="hidden" name="gallery[{{$value->product_color_id}}][]" value="{{$value->file_name}}">
                                                                     </div>
+                                                                    @else
+                                                                        <div class="border p-2 {{explode('.',$value)[1]}}"  id="add-image">
+                                                                            <i class="fa fa-times" style="" id="img-cross"> </i>
+                                                                            <img onerror="handleError(this);"src="{{asset('file/'. $value->file_name)}}" class="w-100" style="height : 150px;">
+                                                                            <input type="hidden" name="gallery[{{$value->product_color_id}}][]" value="{{$value->file_name}}">
+                                                                        </div>
+                                                                    @endif
                                                                 </div>
                                                                 @endif
                                                             @endforeach

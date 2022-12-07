@@ -79,16 +79,13 @@
 Dropzone.autoDiscover = false;
 $(document).on('click',"#image-upload", function(){
     var drop = new Dropzone("#image-upload",{
-        maxFilesize: 1,
+        maxFilesize: 5,
         url: "{{ route('admin.media.popstore') }}",
-        acceptedFiles: ".jpeg,.jpg,.png,.gif",
+        acceptedFiles: ".jpeg,.jpg,.png,.gif,.mp4",
         addRemoveLinks: true,
         timeout: 50000,
-        accept: function(file, done) {
-            file.acceptDimensions = done;
-            file.rejectDimensions = function() { done("File Height must be greater than 1500 & width must be greater than 1000"); };
-        },
         thumbnail:function(file,url){
+            console.log('esfe', file.type);
             if($('.reszeit').length>0){
                 console.log(file);
                 console.log(file.width);
@@ -100,11 +97,19 @@ $(document).on('click',"#image-upload", function(){
                     file.acceptDimensions();
                 }
             }else{
-                console.log(file.size/1024);
-                if(file.size/1024 > 1024){
-                    return false
+                console.log(file.type);
+                if (file.type == 'video/mp4') {
+                    if(file.size/1024 > 5120){
+                        return false
+                    } else {
+                        file.acceptDimensions();
+                    }
                 } else {
-                    file.acceptDimensions();
+                    if(file.size/1024 > 1024){
+                        return false
+                    } else {
+                        file.acceptDimensions();
+                    }
                 }
             }
         },
@@ -112,7 +117,18 @@ $(document).on('click',"#image-upload", function(){
             console.log(response);
             if(response.success){
                 var data = response.data;
-                var html = `<div class="col-xs-4 col-md-2 margin-bottomset py-2">
+                if (file.type == 'video/mp4') {
+                    var html = `<div class="col-xs-4 col-md-2 margin-bottomset py-2">
+                        <div class="img-thumbnail thumbnail-imgess">
+                            <input type="checkbox" id="myCheckbox${data.id}" data-id="${data.id}" data-img="${data.name}"/>
+                              <label for="myCheckbox${data.id}" id="myLabel${data.id}">
+                                <img onerror="handleError(this);"class="box-images px-2 py-2" image_id="" title="Video - ${data.name}" src="{{asset("file")}}/${data.name}" alt="..." >
+                                <video controls poster="{{asset('assets/images/video.png')}}" class="w-100" style="height : 150px;">
+                            </label>
+                        </div>
+                    </div>`;
+                } else {
+                    var html = `<div class="col-xs-4 col-md-2 margin-bottomset py-2">
                         <div class="img-thumbnail thumbnail-imgess">
                             <input type="checkbox" id="myCheckbox${data.id}" data-id="${data.id}" data-img="${data.name}"/>
                               <label for="myCheckbox${data.id}" id="myLabel${data.id}">
@@ -120,6 +136,7 @@ $(document).on('click',"#image-upload", function(){
                             </label>
                         </div>
                     </div>`;
+                }
                 $(document).find('#media-dybox').find('#unctg').find('.row').append(html);
             }
         },

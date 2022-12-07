@@ -132,12 +132,22 @@
                         <div class="row">
                             @foreach($images as $image)
                             <div class="col-xs-4 col-md-2 margin-bottomset py-2">
-                                <div class="img-thumbnail thumbnail-imges  ">
-                                    <input type="checkbox" id="myCheckbox{{$image->id}}" data-id="{{$image->id}}"/>
-                                      <label for="myCheckbox{{$image->id}}" id="mychklabel">
-                                        <img onerror="handleError(this);"class="box-image px-2 py-2" image_id="" src="{{asset("file")}}/{{$image->name}}" alt="..." >
-                                    </label>
-                                </div>
+                                @if (explode('.',$image->name)[1] == 'mp4')
+                                    <div class="img-thumbnail thumbnail-imges">
+                                        <input type="checkbox" id="myCheckbox{{$image->id}}" data-id="{{$image->id}}"/>
+                                          <label for="myCheckbox{{$image->id}}" id="mychklabel">
+                                              <img onerror="handleError(this);"class="box-images px-2 py-2" image_id="" title="Video - {{$image->name}}" src="{{asset('assets/images/video.png')}}" alt="..." >
+                                        </label>
+                                    </div>
+                                @else
+                                    <div class="img-thumbnail thumbnail-imges">
+                                        <input type="checkbox" id="myCheckbox{{$image->id}}" data-id="{{$image->id}}"/>
+                                          <label for="myCheckbox{{$image->id}}" id="mychklabel">
+                                            <img onerror="handleError(this);"class="box-image px-2 py-2" image_id="" src="{{asset("file")}}/{{$image->name}}" alt="..." >
+                                        </label>
+                                    </div>
+                                @endif
+                                
                                 <button class="btn btn-block btn-secondary" id="view-btn" style="border : 2px solid #5A6268;border-radius: 0px 0px 5px 5px !important;" data-id="{{$image->id}}"> View Detail</button>
                             </div>
                             @endforeach
