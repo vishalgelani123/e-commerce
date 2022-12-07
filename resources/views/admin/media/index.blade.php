@@ -225,7 +225,7 @@
 
     Dropzone.options.imageUpload ={
         maxFilesize:50,
-        acceptedFiles: ".jpeg,.jpg,.png,.gif",
+        acceptedFiles: ".jpeg,.jpg,.png,.gif,.mp4",
         timeout: 60000,
         addRemoveLinks: true,
     };
