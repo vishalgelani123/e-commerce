@@ -107,7 +107,7 @@
                          <button class="btn btn-primary" data-toggle="modal" data-target=".add-image-modal"><i class="fa fa-plus"></i>&nbsp;Add New</button>
                       </div>
                     </div>
-                    
+
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.media.search') }}" >
                             @csrf
@@ -126,7 +126,7 @@
                             </div>
                         </form>
                     </div>
-                    
+
                     <div class="card-body">
                         <?php if(count($images)>0){ ?>
                         <div class="row">
@@ -147,7 +147,7 @@
                                         </label>
                                     </div>
                                 @endif
-                                
+
                                 <button class="btn btn-block btn-secondary" id="view-btn" style="border : 2px solid #5A6268;border-radius: 0px 0px 5px 5px !important;" data-id="{{$image->id}}"> View Detail</button>
                             </div>
                             @endforeach
@@ -225,7 +225,7 @@
 
     Dropzone.options.imageUpload ={
         maxFilesize:50,
-        acceptedFiles: ".jpeg,.jpg,.png,.gif,.mp4",
+        acceptedFiles: ".jpeg,.jpg,.png,.gif,video/*",
         timeout: 60000,
         addRemoveLinks: true,
     };

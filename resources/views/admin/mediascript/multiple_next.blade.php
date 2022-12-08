@@ -7,7 +7,7 @@
             $(this).addClass('active');
             var url = $(this).attr('href');
             page = $(this).attr('href').split('page=')[1];
-            
+
             $.get("{{url('backoffice/product/sendimg')}}",{'id':mainId,page:page},function(n){
                 $('#media-dybox').find('.tab-content').find('#catf_'+mainId).html(n.data);
             });
@@ -25,7 +25,7 @@
             }
         }
     });
-    
+
     var iterator = 0;
 
     $(document).on("click","#img-cross", function(){
@@ -81,7 +81,7 @@ $(document).on('click',"#image-upload", function(){
     var drop = new Dropzone("#image-upload",{
         maxFilesize: 5,
         url: "{{ route('admin.media.popstore') }}",
-        acceptedFiles: ".jpeg,.jpg,.png,.gif,.mp4",
+        acceptedFiles: ".jpeg,.jpg,.png,.gif,video/*",
         addRemoveLinks: true,
         timeout: 50000,
         thumbnail:function(file,url){
