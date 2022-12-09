@@ -21,7 +21,7 @@ class MediaController extends Controller
             $search = $request->input('image_search');
         }else{
             $images = Images::latest()->paginate(48);
-        }    
+        }
         return view('admin.media.index', compact('images','search'));
     }
 
@@ -62,7 +62,7 @@ class MediaController extends Controller
         //$image                   =       public_path('/file/').$request->file('image');
         $destinationPath         =       public_path('/file/');
         $img                     =       Image::make(public_path('/file/').$request->input('image'));
-    
+
         $img->resize(1000, 1000, function ($constraint) {
             $constraint->aspectRatio();
         })->save($destinationPath.'/'.$request->input('image'));
@@ -71,6 +71,10 @@ class MediaController extends Controller
     public function view($id)
     {
         $image = Images::find($id);
+        $image->type = 1;
+        if (explode('.',$image->name)[1] == 'mp4' || explode('.',$image->name)[1] == 'omg' || explode('.',$image->name)[1] == 'wmv' || explode('.',$image->name)[1] == 'mpg' || explode('.',$image->name)[1] == 'webm' || explode('.',$image->name)[1] == 'ogv' || explode('.',$image->name)[1] == 'mov' || explode('.',$image->name)[1] == 'asx' || explode('.',$image->name)[1] == 'mpeg') {
+            $image->type = 3;
+        }
         return response()->json(['code' => 200 , 'success' => true , 'data' => $image]);
     }
 

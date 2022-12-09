@@ -132,7 +132,7 @@
                         <div class="row">
                             @foreach($images as $image)
                             <div class="col-xs-4 col-md-2 margin-bottomset py-2">
-                                @if (explode('.',$image->name)[1] == 'mp4')
+                                @if (explode('.',$image->name)[1] == 'mp4' || explode('.',$image->name)[1] == 'omg' || explode('.',$image->name)[1] == 'wmv' || explode('.',$image->name)[1] == 'mpg' || explode('.',$image->name)[1] == 'webm' || explode('.',$image->name)[1] == 'ogv' || explode('.',$image->name)[1] == 'mov' || explode('.',$image->name)[1] == 'asx' || explode('.',$image->name)[1] == 'mpeg')
                                     <div class="img-thumbnail thumbnail-imges">
                                         <input type="checkbox" id="myCheckbox{{$image->id}}" data-id="{{$image->id}}"/>
                                           <label for="myCheckbox{{$image->id}}" id="mychklabel">
@@ -243,6 +243,7 @@
            url:"{{ url('secure_admin/media/view') }}"+"/"+id,
            data:{},
            success:function(data){
+                console.log(data);
               var img = new Image();
               img.src = "{{asset('file')}}"+ "/" + data.data.name;
 
@@ -250,12 +251,22 @@
               var imgheight = img.height;
               console.log(img.width);
               var html = "";
-              $('#image-view').html(`
+              if (data.data.type == 3) {
+                $('#image-view').css('text-align', 'center');
+                $('#image-view').html(`
+                    <video width="320" height="auto" controls><source src="${img.src}"></video>
+                    <h4 class="text-center my-1">Name - ${data.data.name}</h4>
+                    <h6 class="text-center my-1">Diamension - ${imgwidth}/${imgheight}</h6>
+                    <button onclick="copyit($(this))" data-id="${data.data.name}" class="btn btn-danger btn-block">Copy</button>
+                `);
+              } else {
+                $('#image-view').html(`
                      <img onerror="handleError(this);"src="${img.src}"  class="w-100"/>
                      <h4 class="text-center my-1">Name - ${data.data.name}</h4>
                      <h6 class="text-center my-1">Diamension - ${imgwidth}/${imgheight}</h6>
                      <button onclick="copyit($(this))" data-id="${data.data.name}" class="btn btn-danger btn-block">Copy</button>
-              `);
+                `);
+              }
               $('.view-image-modal').modal('show');
            }
         });
