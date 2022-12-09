@@ -90,12 +90,12 @@
                             id="status" required>
                             <option value disabled {{ old('status', null) === null ? 'selected' : '' }}>
                                 {{ trans('global.pleaseSelect') }}</option>
-                            @foreach (App\Models\Category::STATUS_SELECT as $key => $label)
-                                <option value="{{ $key }}"
-                                    {{ old('status', $category->status) == (string) $key ? 'selected' : '' }}>
-                                    {{ $label }}
-                                </option>
-                            @endforeach
+                                @foreach (App\Models\Category::STATUS_SELECT as $key => $label)
+                                    <option value="{{ $key }}"
+                                        {{ old('status', $category->status) == (string) $key ? 'selected' : '' }}>
+                                        {{ $label }}
+                                    </option>
+                                @endforeach
                         </select>
                         @if ($errors->has('status'))
                             <span class="text-danger">{{ $errors->first('status') }}</span>
@@ -121,15 +121,24 @@
                             <span class="text-danger">{{ $errors->first('image') }}</span>
                         @endif
                         @if(isset($category->image))
-                        <span class="help-block">{{ trans('cruds.category.fields.name_helper') }}</span>
-                        <div class="image-load" >
-                            {{-- load dynamic image --}}
-                            <div class="d-inline" id="remove-box">
-                              <i class="fa fa-lg fa-times-circle"></i>
-                              <img onerror="handleError(this);"src="@if(isset($category->thumb_url)){{$category->thumb_url}} @endif" style="width : 120px;" class="my-2" id="edit-img"/>
+                            <span class="help-block">{{ trans('cruds.category.fields.name_helper') }}</span>
+                            <div class="image-load" >
+                                {{-- load dynamic image --}}
+                                <div class="d-inline" id="remove-box">
+                                  <i class="fa fa-lg fa-times-circle"></i>
+                                  <img onerror="handleError(this);"src="@if(isset($category->thumb_url)){{$category->thumb_url}} @endif" style="width : 120px;" class="my-2" id="edit-img"/>
+                                </div>
+                                <input type="hidden" name="image" value="@if(isset($category->image)){{$category->image}}@endif" id="image-value"/>
                             </div>
-                            <input type="hidden" name="image" value="@if(isset($category->image)){{$category->image}}@endif" id="image-value"/>
-                        </div>
+                        @else
+                            <span class="help-block">{{ trans('cruds.category.fields.name_helper') }}</span>
+                            <div class="image-load" >
+                                {{-- load dynamic image --}}
+                                <div class="d-inline">
+                                  <img onerror="handleError(this);"src="" style="width : 120px;" class="my-2" id="edit-img"/>
+                                </div>
+                                <input type="hidden" name="image" value="" id="image-value"/>
+                            </div>
                         @endif
                     </div>
 

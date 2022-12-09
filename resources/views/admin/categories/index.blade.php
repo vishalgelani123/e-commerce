@@ -130,9 +130,9 @@
                             </td>
                             <td>
                                 @if(isset($row->image))
-                                <a href="{{ $row->image_url }}">
-                                    <img onerror="handleError(this);"src="{{ $row->thumb_url ?? '' }}" width="50px" height="50px" />
-                                </a>
+                                    <a href="{{ $row->image_url }}">
+                                        <img onerror="handleError(this);"src="{{ $row->thumb_url ?? '' }}" width="50px" height="50px" />
+                                    </a>
                                 @else
                                     N/A
                                 @endif

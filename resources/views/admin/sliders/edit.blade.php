@@ -71,12 +71,18 @@
                             <span class="text-danger">{{ $errors->first('image') }}</span>
                         @endif
                         <span class="help-block">{{ trans('cruds.brand.fields.description_helper') }}</span>
-                        <div class="image-load">
-                            {{-- load dynamic image --}}
-                    </div>
+                        @if ($slider->image)
+                            <div class="image-load">
+                                <img onerror="handleError(this);" src="{{asset('file').'/'. $slider->image}}" style="width : 120px;" class="my-2">
+                                <input id="logo-name" type="hidden" name="image" value="{{$slider->image}}">
+                            </div>
+                        @else
+                            <div class="image-load">
+                                {{-- load dynamic image --}}
+                            </div>
+                        @endif
                 </div>
                 <div class="form-group col-md-3 video" style="display:none;">
-                  
                     <label for="image" class="required">Video</label>
                        <input type="file" class="form-control" name="video">
                     </div>
@@ -84,7 +90,7 @@
                 <div class="form-group col-6 youtube" style="display:none;">
                     <label for="url">youtube url</label>
                     <input class="form-control {{ $errors->has('youtube') ? 'is-invalid' : '' }}" type="text" name="youtube"
-                        id="youtube" value="{{ old('youtube', '') }}">
+                        id="youtube" value="{{ old('youtube', $slider->youtube) }}">
                     @if ($errors->has('url'))
                         <span class="text-danger">{{ $errors->first('youtube') }}</span>
                     @endif
@@ -174,6 +180,22 @@
 }
 </script>
 <script>
+    $(document).ready(function() {
+        var type = $("#type").val();
+        if (type == 'image') {
+            $('.slider').css("display","block");
+            $('.video').css("display","none");
+            $('.youtube').css("display","none");
+        }else if(type == 'video'){
+            $('.slider').css("display","none");
+            $('.video').css("display","block");
+            $('.youtube').css("display","none");
+        }else{
+            $('.slider').css("display","none");
+            $('.video').css("display","none");
+            $('.youtube').css("display","block");
+        }
+    });
     $('#type').on("change",function(){
         var type = $(this).val();
         if (type == 'image') {

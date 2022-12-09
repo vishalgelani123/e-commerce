@@ -23,7 +23,7 @@
 
           console.log( imgwidth);
           console.log( imgheight);
-
+          
           if(cur_url === 'home' && seg_two === 'banners'){
             // if((imgwidth === 1138 && imgheight === 640) || (imgwidth === 1920 &&  imgheight === 1080)){
                 $('.image-load').html(
