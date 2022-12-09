@@ -39,7 +39,6 @@
     $(document).on('click','input[type="checkbox"][id^="myCheckbox"]',function() {
     $(`#merge-image-${iterator}`).html();
         var id = $(this).attr('id');
-        console.log('click me');
         var imagesrc = "{{asset('file')}}"+ "/"+$(this).attr('data-img');
         var name = $(this).attr('data-img');
         var html = '';

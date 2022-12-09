@@ -43,20 +43,33 @@
     $(document).on('click','input[type="checkbox"][id^="myCheckbox"]',function() {
     $(`#merge-image-${iterator}`).html();
         var id = $(this).attr('id');
-        console.log('click me');
         var imagesrc = "{{asset('file')}}"+ "/"+$(this).attr('data-img');
         var name = $(this).attr('data-img');
         var html = '';
+        console.log(name.split('.')[1]);
         if (this.checked) {
             var url = iterator + name;
             let data = url.split('.')[0];
-            html += `<div class="col-2" id="${data}">
+            if (name.split('.')[1] == 'mp4' || name.split('.')[1] == 'omg' || name.split('.')[1] == 'wmv' || name.split('.')[1] == 'mpg' || name.split('.')[1] == 'webm' || name.split('.')[1] == 'ogv' || name.split('.')[1] == 'mov' || name.split('.')[1] == 'asx' || name.split('.')[1] == 'mpeg') {
+                html += `<div class="col-2" id="${data}">
+                        <div class="border p-2"  id="add-image">
+                            <i class="fa fa-times" style="" id="img-cross"> </i>
+                            <video onerror="handleError(this);" class="box-images px-2 py-2" height="150px;" title="Video - ${name}" controls="">
+                                <source src="${imagesrc}">
+                            </video>
+                            <input type="hidden" id="image" name="gallery[${iterator}][]" value="${name}">
+                        </div>
+                    </div>`;
+            } else {
+                html += `<div class="col-2" id="${data}">
                         <div class="border p-2"  id="add-image">
                             <i class="fa fa-times" style="" id="img-cross"> </i>
                             <img onerror="handleError(this);"src="${imagesrc}" class="w-100" style="height : 150px;">
                             <input type="hidden" id="image" name="gallery[${iterator}][]" value="${name}">
                         </div>
                     </div>`;
+            }
+            
 
             $(`#before-btn-${iterator}`).before(html);
             toastr.success('Success', 'Image added successfully.',{
@@ -117,7 +130,7 @@ $(document).on('click',"#image-upload", function(){
             console.log(response);
             if(response.success){
                 var data = response.data;
-                if (file.type == 'video/mp4') {
+                if (file.type == 'video/*') {
                     var html = `<div class="col-xs-4 col-md-2 margin-bottomset py-2">
                         <div class="img-thumbnail thumbnail-imgess">
                             <input type="checkbox" id="myCheckbox${data.id}" data-id="${data.id}" data-img="${data.name}"/>

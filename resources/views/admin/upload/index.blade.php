@@ -119,6 +119,17 @@
                   $images = Images::all();
                 ?>
                 @foreach($images as $image)
+                @if (explode('.',$image->name)[1] == 'mp4' || explode('.',$image->name)[1] == 'omg' || explode('.',$image->name)[1] == 'wmv' || explode('.',$image->name)[1] == 'mpg' || explode('.',$image->name)[1] == 'webm' || explode('.',$image->name)[1] == 'ogv' || explode('.',$image->name)[1] == 'mov' || explode('.',$image->name)[1] == 'asx' || explode('.',$image->name)[1] == 'mpeg')
+                <div class="col-xs-4 col-md-2 margin-bottomset py-2">
+                    <div class="img-thumbnail thumbnail-imgess">
+                        <input type="checkbox" id="myCheckbox{{$image->id}}" data-id="{{$image->id}}" data-img="{{$image->name}}"/>
+                          <label for="myCheckbox{{$image->id}}">
+                            <img onerror="handleError(this);"class="box-images px-2 py-2" image_id="" title="Video - {{$image->name}}" src="{{asset('assets/images/video.png')}}" alt="..." >
+                        </label>
+                    </div>
+                    {{-- <button class="btn btn-block btn-secondary" id="view-btn" style="border : 2px solid #5A6268;border-radius: 0px 0px 5px 5px !important;" data-id="{{$image->id}}"> View Detail</button> --}}
+                </div>
+                @else
                 <div class="col-xs-4 col-md-2 margin-bottomset py-2">
                     <div class="img-thumbnail thumbnail-imgess">
                         <input type="checkbox" id="myCheckbox{{$image->id}}" data-id="{{$image->id}}" data-img="{{$image->name}}"/>
@@ -128,6 +139,8 @@
                     </div>
                     {{-- <button class="btn btn-block btn-secondary" id="view-btn" style="border : 2px solid #5A6268;border-radius: 0px 0px 5px 5px !important;" data-id="{{$image->id}}"> View Detail</button> --}}
                 </div>
+                @endif
+
                 @endforeach
             </div>
           </div>

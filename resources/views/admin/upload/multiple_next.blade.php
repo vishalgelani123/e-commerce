@@ -105,7 +105,7 @@ use App\Models\Images;
     <div class="modal-dialog modal-xl modal-dialog-centered">
       <div class="modal-content" id="add-image-body">
          <div class="modal-header text-center">
-            <h5 class="modal-title w-100">Media Browser</h5>
+            <h5 class="modal-title w-100">Media Browser greg</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -128,7 +128,7 @@ use App\Models\Images;
                                 <div class="row">
                                     <?php $images = Images::all(); ?>
                                     @foreach($images as $image)
-                                        @if (explode('.',$image->name)[1] == 'mp4')
+                                    @if (explode('.',$image->name)[1] == 'mp4' || explode('.',$image->name)[1] == 'omg' || explode('.',$image->name)[1] == 'wmv' || explode('.',$image->name)[1] == 'mpg' || explode('.',$image->name)[1] == 'webm' || explode('.',$image->name)[1] == 'ogv' || explode('.',$image->name)[1] == 'mov' || explode('.',$image->name)[1] == 'asx' || explode('.',$image->name)[1] == 'mpeg')
                                             <div class="col-xs-4 col-md-2 margin-bottomset py-2">
                                                 <div class="img-thumbnail thumbnail-imgess">
                                                     <input type="checkbox" id="myCheckbox{{$image->id}}" data-id="{{$image->id}}" data-img="{{$image->name}}"/>
